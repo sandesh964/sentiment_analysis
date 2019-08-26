@@ -1,0 +1,11 @@
+---
+- name: Install Java
+  yum:
+    name: java
+    state: present
+
+- name: Enable Jenkins stable repo
+  shell: "curl --silent --location {{ jenkins_repo }} | sudo tee /etc/yum.repos.d/jenkins.repo"
+
+- name: Import the GPG Key to start using the repo
+  shell: 'rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key'

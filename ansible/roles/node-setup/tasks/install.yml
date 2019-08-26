@@ -1,0 +1,38 @@
+---
+- name: Install Java
+  yum:
+    name: java
+    state: present
+
+- name: Install epel-release repo configurations
+  yum:
+    name: epel-release
+    state: present
+
+- name: Install PIP
+  yum:
+    name: python-pip
+    state: present
+
+- name: Setup required packages for docker
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+
+- name: Setup stable docker repository
+  shell: "yum-config-manager --add-repo {{ docker_ce_repo}}"
+
+- name: Install docker-ce
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io

@@ -1,0 +1,7 @@
+---
+- name: docker-host.yml | All roles
+  hosts: docker-host
+  become: yes
+  become_method: sudo
+  roles:
+    - {role: node-setup, tags: ['Prepare the Node for Deployment']}

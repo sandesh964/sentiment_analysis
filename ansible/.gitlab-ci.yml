@@ -1,0 +1,31 @@
+stages:
+  - setup
+  - lint
+  - verify
+  - play
+  - test
+
+task_setup:
+  stage: setup
+  script:
+    - invoke setup
+
+task_lint:
+  stage: lint
+  script:
+    - invoke lint
+
+task_verify:
+  stage: verify
+  script:
+    - invoke verify
+
+task_play:
+  stage: play
+  script:
+    - invoke play
+
+task_test:
+  stage: test
+  script:
+    - invoke test

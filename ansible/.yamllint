@@ -1,0 +1,19 @@
+extends: default
+ignore: |
+  requirements.txt
+  group_vars/*/vault/*
+  hosts
+  ReadMe.md
+  *.py
+  tests/*
+  meta/*
+  ansible.cfg
+
+rules:
+  # 600 chars should be enough, but don't fail if a line is longer
+  line-length:
+    max: 600
+  braces:
+    max-spaces-inside: 1
+  truthy: disable
+  new-lines: disable

@@ -1,0 +1,9 @@
+---
+# Install and configure prerequisites
+- include_tasks: pre-install.yml
+
+# Install Pip, Docker and Java
+- include_tasks: install.yml
+
+# Start Docker service
+- include_tasks: post-install.yml

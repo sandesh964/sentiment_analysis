@@ -1,0 +1,25 @@
+[MASTER]
+rcfile=.pylintrc
+
+[BASIC]
+
+
+[FORMAT]
+# Maximum number of characters on a single line.
+# This should be 120 ideally but hate to increase the value as the mock tweet to pubsub emulator fails if there are
+# new lines in the tweet message. Need to explore the strip functionality
+max-line-length=250
+
+[SIMILARITIES]
+
+# Minimum lines number of a similarity.
+min-similarity-lines=10
+
+# Ignore comments when computing similarities.
+ignore-comments=yes
+
+# Ignore docstrings when computing similarities.
+ignore-docstrings=yes
+
+# Ignore duplicate code warning
+disable=duplicate-code, anomalous-backslash-in-string, redefined-outer-name, broad-except, arguments-differ, no-member, bad-super-call, global-statement

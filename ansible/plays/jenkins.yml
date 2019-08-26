@@ -1,0 +1,7 @@
+---
+- name: jenkins.yml | All roles
+  hosts: jenkins-master
+  become: yes
+  become_method: sudo
+  roles:
+    - {role: jenkins, tags: ['Install Jenkins']}

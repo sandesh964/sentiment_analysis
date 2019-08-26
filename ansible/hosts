@@ -1,0 +1,5 @@
+[docker-host]
+localhost
+
+[jenkins-master]
+localhost
