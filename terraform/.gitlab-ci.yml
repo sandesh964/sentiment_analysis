@@ -1,0 +1,19 @@
+before_script:
+  - cp -r ${CREDENTIALS} ${PWD}/
+
+stages:
+  - lint
+  - test
+
+task_lint:
+  stage: lint
+  script:
+    - invoke lint
+
+task_test:
+  stage: test
+  script:
+    - invoke test-vm
+
+after_script:
+  - rm -r ${PWD}/credentials
