@@ -1,0 +1,25 @@
+before_script:
+    - cp -r ${CREDENTIALS} ${PWD}/
+
+stages:
+  - lint
+  - bake-image
+  - test
+
+task_lint:
+  stage: lint
+  script:
+    - invoke lint
+
+task_bake_image:
+  stage: bake-image
+  script:
+    - invoke build-image -d . -t subscriber
+
+task_test:
+  stage: test
+  script:
+    - invoke test-subscriber-image
+
+after_script:
+  - rm -r ${PWD}/credentials

@@ -1,0 +1,11 @@
+requests
+google-api-python-client
+configparser
+google-cloud-pubsub
+python-dateutil
+google-cloud-language
+flexmock
+pytest_bdd
+pytest-env
+pytest-cov
+testinfra
