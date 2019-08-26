@@ -1,0 +1,32 @@
+before_script:
+  - rm -rf builds/UnJ8SfDw/0/anz-code-challenge/containers/publisher/
+  - cp -r ${CREDENTIALS} ${PWD}/
+
+stages:
+  - lint
+  - bake-image
+  - test
+  - functional-test
+
+task_lint:
+  stage: lint
+  script:
+    - invoke lint
+
+task_bake_image:
+  stage: bake-image
+  script:
+    - invoke build-image -d . -t publisher
+
+task_test:
+  stage: test
+  script:
+    - invoke test-publisher-image
+
+task_functional_test:
+  stage: functional-test
+  script:
+    - invoke test-publisher
+
+after_script:
+  - rm -r ${PWD}/credentials
