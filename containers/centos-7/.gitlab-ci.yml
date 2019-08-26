@@ -1,0 +1,19 @@
+stages:
+  - lint
+  - bake-image
+  - test
+
+task_lint:
+  stage: lint
+  script:
+    - invoke lint
+
+task_bake_image:
+  stage: bake-image
+  script:
+    - invoke build-image -d . -t python
+
+task_test:
+  stage: test
+  script:
+    - invoke test-centos-image
